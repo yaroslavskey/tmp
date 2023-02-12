@@ -7,13 +7,7 @@ import {
   UsePipes,
   BadRequestException,
   UseGuards,
-  UseInterceptors,
-  UploadedFile,
-  ParseFilePipe,
-  MaxFileSizeValidator,
-  FileTypeValidator,
 } from '@nestjs/common';
-import { FileInterceptor } from '@nestjs/platform-express';
 import { ALREDY_REGISTERED_ERROR } from './auth.constants';
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto/auth.dto';
@@ -24,6 +18,7 @@ import { JwtAuthGuard } from './guards/jwt.guard';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
+  
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
   @Post('register')

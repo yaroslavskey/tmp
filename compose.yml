@@ -1,0 +1,19 @@
+version: '3'
+services:
+  node:
+    restart: always
+    build: .
+    ports:
+      - 5000:5000
+    volumes:
+      - ./.env:/home/root/tmp.env
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS="/home/root/tmp/my-project-upload-375112-6d641ee3f95e.json"
+volumes:
+ mongodb:
