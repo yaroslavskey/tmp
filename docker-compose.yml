@@ -6,7 +6,7 @@ services:
     ports:
       - 5000:5000
     volumes:
-      - ./.env:/home/root/tmp.env
+      - ./.env:/opt/app/.env
   mongo:
     image: mongo
     ports:
