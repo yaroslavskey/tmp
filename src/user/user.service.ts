@@ -37,8 +37,8 @@ export class UserService {
   }
 
   async convertToWebPandResaze(name, resize) {
-    //const filepath = path.join(__dirname, '../../uploads/');
-    const filepath = path.join( '/tmp/');
+    const filepath = path.join(__dirname, '../../uploads/');
+    //const filepath = path.join( '/tmp/');
     const compresedName = path.join(
       filepath,
       name.split('.')[0] + resize + '.webp',

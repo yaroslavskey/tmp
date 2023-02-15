@@ -22,6 +22,8 @@ import { PatchUserDto } from './dto/patch-user.dto';
 import { User } from './schemas/user.schema';
 import { UserService } from './user.service';
 import { FileInterceptor } from '@nestjs/platform-express';
+import * as fs from 'fs';
+import * as path from 'path';
 
 @ApiTags('User controller')
 @Controller('user')
@@ -90,6 +92,13 @@ export class UserController {
       file.filename,
       true,
     );
+    const filepath = path.join(__dirname, '../../uploads/');
+    fs.readdir(filepath, (err, files) => {
+      files.forEach((file) => {
+        console.log('upload files', file);
+      });
+    });
+
     const GCPresized = await this.userService
       .uploadFileGCP(resized, file.filename, true)
       .catch(console.error);
