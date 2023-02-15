@@ -7,13 +7,14 @@ services:
       - 5000:5000
     volumes:
       - ./.env:/opt/app/.env
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/opt/app/my-project-upload-375112-6d641ee3f95e.json
+#      - MONGODB_URI=mongodb://mongo:27017/user
   mongo:
     image: mongo
     ports:
       - 27017:27017
     volumes:
       - mongodb:/data/db
-    environment:
-      - GOOGLE_APPLICATION_CREDENTIALS="/home/root/tmp/my-project-upload-375112-6d641ee3f95e.json"
 volumes:
  mongodb:
